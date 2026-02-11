@@ -3,25 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SaaiGiGa IT Solutions | Startup IT Support</title>
-    <meta name="description" content="Complete IT solutions for startups. Hardware installation, networking, CCTV, cloud services, and sales.">
+    <title>SaaiGiGa IT Solutions | Startup IT Support & Hardware</title>
+    <meta name="description" content="Complete IT solutions for startups. Hardware installation, networking, CCTV, cloud services (AWS, GCS), and sales of refurbished laptops and servers.">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome Icons -->
+    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* --- CSS Variables --- */
+        /* --- CSS Variables & Reset --- */
         :root {
-            /* LIGHT GREEN THEME */
-            --primary-color: #10b981; /* Light Green */
-            --primary-dark: #065f46;  /* Dark Green */
-            --accent-color: #f59e0b;  /* Orange Buttons */
-            
+            --primary-color: #0056b3; /* Professional Blue */
+            --primary-dark: #003d82;
+            --accent-color: #ff9900; /* Energetic Orange for CTAs */
             --text-dark: #1f2937;
             --text-light: #6b7280;
             --bg-light: #f3f4f6;
@@ -89,6 +87,7 @@
             background-color: var(--primary-color);
             color: white;
         }
+
         .btn-primary:hover {
             background-color: var(--primary-dark);
             transform: translateY(-2px);
@@ -99,6 +98,7 @@
             border: 2px solid var(--primary-color);
             color: var(--primary-color);
         }
+
         .btn-secondary:hover {
             background-color: var(--primary-color);
             color: white;
@@ -120,7 +120,7 @@
             margin-right: auto;
         }
 
-        /* --- Header --- */
+        /* --- Header & Navigation --- */
         header {
             background-color: var(--bg-white);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -138,14 +138,16 @@
         }
 
         .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
             display: flex;
             align-items: center;
+            gap: 10px;
         }
 
-        .logo img {
-            height: 60px;
-            width: auto;
-            object-fit: contain;
+        .logo span {
+            color: var(--text-dark);
         }
 
         .nav-links {
@@ -158,6 +160,7 @@
             color: var(--text-dark);
             transition: var(--transition);
         }
+
         .nav-links a:hover {
             color: var(--primary-color);
         }
@@ -171,19 +174,14 @@
 
         /* --- Hero Section --- */
         .hero {
-            /* Background Color Backup: If image fails, this green color shows */
-            background-color: var(--primary-dark); 
-            
-            /* Gradient + Image */
-            background: linear-gradient(rgba(6, 95, 70, 0.9), rgba(6, 95, 70, 0.85)), 
-                        url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1920&auto=format&fit=crop') no-repeat center center/cover;
-            
+            background: linear-gradient(rgba(0, 86, 179, 0.9), rgba(0, 40, 85, 0.8)), 
+                        url('https://picsum.photos/seed/servertech/1920/1080.jpg') no-repeat center center/cover;
             height: 100vh;
             min-height: 600px;
             display: flex;
             align-items: center;
             color: white;
-            padding-top: 80px;
+            padding-top: 80px; /* Offset fixed header */
         }
 
         .hero-content {
@@ -213,26 +211,14 @@
             color: white;
         }
         .btn-accent:hover {
-            background-color: #d97706;
+            background-color: #e68a00;
         }
 
-        /* --- About --- */
-        .about {
-            background-color: white;
-        }
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            text-align: center;
-        }
-        .about-item i {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
+        /* --- Services Section --- */
+        .services {
+            background-color: var(--bg-white);
         }
 
-        /* --- Services --- */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -245,6 +231,8 @@
             border-radius: 10px;
             border: 1px solid var(--border-color);
             transition: var(--transition);
+            position: relative;
+            overflow: hidden;
         }
 
         .service-card:hover {
@@ -256,7 +244,7 @@
         .icon-box {
             width: 60px;
             height: 60px;
-            background-color: rgba(16, 185, 129, 0.1);
+            background-color: rgba(0, 86, 179, 0.1);
             color: var(--primary-color);
             border-radius: 50%;
             display: flex;
@@ -266,7 +254,21 @@
             margin-bottom: 20px;
         }
 
-        /* --- Products --- */
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* --- Products (Sales) Section --- */
+        .products {
+            background-color: var(--bg-light);
+        }
+
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -280,24 +282,24 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: var(--transition);
         }
+
         .product-card:hover {
             box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
 
         .product-img {
-            height: 220px;
-            background-color: #f0fdf4; /* Light green bg for image area */
+            height: 200px;
+            background-color: #ddd;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
+        
         .product-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
+
         .product-card:hover .product-img img {
             transform: scale(1.1);
         }
@@ -307,8 +309,8 @@
         }
 
         .product-tag {
-            background-color: #d1fae5;
-            color: #065f46;
+            background-color: #e0f2fe;
+            color: var(--primary-color);
             padding: 5px 10px;
             border-radius: 20px;
             font-size: 0.8rem;
@@ -317,12 +319,30 @@
             margin-bottom: 10px;
         }
 
+        .product-info h3 {
+            margin-bottom: 10px;
+        }
+
+        .product-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
         /* --- Cloud Section --- */
         .cloud {
             background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
             color: white;
             text-align: center;
         }
+
+        .cloud-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
         .cloud-logos {
             display: flex;
             gap: 40px;
@@ -332,7 +352,20 @@
             justify-content: center;
         }
 
-        /* --- Contact --- */
+        .cloud-text {
+            max-width: 700px;
+        }
+        
+        .cloud-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* --- Contact Section --- */
+        .contact {
+            background-color: var(--bg-white);
+        }
+
         .contact-wrapper {
             display: grid;
             grid-template-columns: 1fr 1.5fr;
@@ -345,36 +378,66 @@
             padding: 40px;
             border-radius: 10px;
         }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+
         .info-item {
             display: flex;
             align-items: flex-start;
             gap: 15px;
             margin-bottom: 25px;
         }
+
         .info-item i {
             font-size: 1.2rem;
             color: var(--accent-color);
             margin-top: 5px;
         }
 
+        .info-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .info-item p, .info-item a {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.95rem;
+        }
+        
+        .info-item a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .contact-form {
+            padding: 10px;
+        }
+
         .form-group {
             margin-bottom: 20px;
         }
+
         .form-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
         }
+
         .form-group input, .form-group textarea, .form-group select {
             width: 100%;
             padding: 12px;
             border: 1px solid var(--border-color);
             border-radius: 5px;
             font-family: inherit;
+            outline: none;
+            transition: border-color 0.3s;
         }
+
         .form-group input:focus, .form-group textarea:focus {
             border-color: var(--primary-color);
-            outline: none;
         }
 
         /* --- Footer --- */
@@ -383,6 +446,7 @@
             color: #9ca3af;
             padding: 60px 0 20px;
         }
+
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -391,28 +455,38 @@
             border-bottom: 1px solid #374151;
             padding-bottom: 40px;
         }
+
         .footer-brand h2 {
             color: white;
             font-size: 1.5rem;
             margin-bottom: 15px;
         }
+
         .footer-links h4, .footer-contact h4 {
             color: white;
             margin-bottom: 20px;
             font-size: 1.1rem;
         }
+
         .footer-links ul li {
             margin-bottom: 10px;
         }
+
         .footer-links ul li a:hover {
             color: white;
         }
 
-        /* --- Mobile --- */
+        .copyright {
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* --- Responsive Design --- */
         @media (max-width: 768px) {
             .mobile-toggle {
                 display: block;
             }
+
             .nav-links {
                 position: absolute;
                 top: 80px;
@@ -426,24 +500,26 @@
                 transition: transform 0.3s ease-in-out;
                 z-index: 999;
             }
+
             .nav-links.active {
                 transform: translateY(0);
             }
+
             .hero h1 {
                 font-size: 2.5rem;
             }
+
             .contact-wrapper {
                 grid-template-columns: 1fr;
             }
+
             .hero-buttons {
                 flex-direction: column;
             }
+            
             .btn {
                 width: 100%;
                 text-align: center;
-            }
-            .about-grid {
-                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -455,8 +531,8 @@
         <div class="container">
             <nav>
                 <a href="#" class="logo">
-                    <!-- LOGO: Make sure 'logo.jpg' is in your folder -->
-                    <img src="logo.jpg" alt="SaaiGiGa Logo">
+                    <i class="fa-solid fa-server"></i>
+                    SaaiGiGa <span>IT Solutions</span>
                 </a>
                 <div class="mobile-toggle" id="mobile-toggle">
                     <i class="fa-solid fa-bars"></i>
@@ -485,34 +561,34 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section-padding about">
+    <section id="about" class="section-padding" style="background-color: white;">
         <div class="container">
             <div class="text-center">
                 <h2 class="section-title">Why Choose SaaiGiGa?</h2>
                 <p class="section-subtitle">We are a startup dedicated to supporting startups. We understand the need for reliable, cost-effective, and scalable IT solutions.</p>
             </div>
-            <div class="about-grid">
-                <div class="about-item">
-                    <i class="fa-solid fa-rocket"></i>
+            <div class="services-grid" style="grid-template-columns: repeat(3, 1fr); text-align: center;">
+                <div>
+                    <i class="fa-solid fa-rocket fa-3x" style="color: var(--primary-color); margin-bottom: 20px;"></i>
                     <h3>Fast Setup</h3>
-                    <p style="color: var(--text-light);">Quick deployment of hardware and networks.</p>
+                    <p style="color: var(--text-light);">Quick deployment of hardware and networks so you can start working immediately.</p>
                 </div>
-                <div class="about-item">
-                    <i class="fa-solid fa-wallet"></i>
+                <div>
+                    <i class="fa-solid fa-wallet fa-3x" style="color: var(--primary-color); margin-bottom: 20px;"></i>
                     <h3>Cost Effective</h3>
-                    <p style="color: var(--text-light);">Premium refurbished laptops and servers.</p>
+                    <p style="color: var(--text-light);">Premium refurbished laptops and servers to save your capital for core business.</p>
                 </div>
-                <div class="about-item">
-                    <i class="fa-solid fa-headset"></i>
+                <div>
+                    <i class="fa-solid fa-headset fa-3x" style="color: var(--primary-color); margin-bottom: 20px;"></i>
                     <h3>Reliable Support</h3>
-                    <p style="color: var(--text-light);">Dedicated maintenance and server management.</p>
+                    <p style="color: var(--text-light);">Dedicated maintenance and server management to keep your downtime zero.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="section-padding">
+    <section id="services" class="section-padding services">
         <div class="container">
             <div class="text-center">
                 <h2 class="section-title">Our IT Services</h2>
@@ -534,7 +610,7 @@
                     <div class="icon-box">
                         <i class="fa-solid fa-network-wired"></i>
                     </div>
-                    <h3>Networking & Cabling</h3>
+                    <h3>Networking & Structured Cabling</h3>
                     <p>Design and installation of robust LAN/WAN networks, Wi-Fi solutions, and data cabling.</p>
                 </article>
 
@@ -561,10 +637,10 @@
 
     <!-- Cloud Section -->
     <section class="section-padding cloud">
-        <div class="container">
-            <div class="text-center">
+        <div class="container cloud-container">
+            <div class="cloud-text">
                 <h2>Cloud Solutions</h2>
-                <p style="max-width: 600px; margin: 0 auto;">We specialize in setting up and managing cloud infrastructure on leading platforms. Whether you need a simple website host or a complex application server, we handle the creation and maintenance.</p>
+                <p>We specialize in setting up and managing cloud infrastructure on leading platforms. Whether you need a simple website host or a complex application server, we handle the creation and maintenance.</p>
                 <div class="cloud-logos">
                     <i class="fa-brands fa-aws" title="AWS"></i>
                     <i class="fa-brands fa-google" title="Google Cloud"></i>
@@ -573,8 +649,8 @@
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section id="products" class="section-padding" style="background-color: var(--bg-light);">
+    <!-- Products Section (Sales) -->
+    <section id="products" class="section-padding products">
         <div class="container">
             <div class="text-center">
                 <h2 class="section-title">Refurbished Hardware Sales</h2>
@@ -585,7 +661,7 @@
                 <!-- Product 1 -->
                 <div class="product-card">
                     <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1531297461136-82lw9z2a6f58?q=80&w=800&auto=format&fit=crop" alt="Laptop">
+                        <img src="https://picsum.photos/seed/laptop/400/300" alt="Refurbished Laptops">
                     </div>
                     <div class="product-info">
                         <span class="product-tag">Best Seller</span>
@@ -598,7 +674,7 @@
                 <!-- Product 2 -->
                 <div class="product-card">
                     <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=800&auto=format&fit=crop" alt="Workstation">
+                        <img src="https://picsum.photos/seed/desktop/400/300" alt="Workstations">
                     </div>
                     <div class="product-info">
                         <span class="product-tag">High Performance</span>
@@ -611,7 +687,7 @@
                 <!-- Product 3 -->
                 <div class="product-card">
                     <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1558494949-ef526b0042a0?q=80&w=800&auto=format&fit=crop" alt="Server">
+                        <img src="https://picsum.photos/seed/serverrack/400/300" alt="Servers">
                     </div>
                     <div class="product-info">
                         <span class="product-tag">Enterprise Grade</span>
@@ -625,7 +701,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section-padding">
+    <section id="contact" class="section-padding contact">
         <div class="container">
             <div class="text-center">
                 <h2 class="section-title">Get In Touch</h2>
@@ -633,6 +709,7 @@
             </div>
 
             <div class="contact-wrapper">
+                <!-- Contact Info -->
                 <div class="contact-info">
                     <h3>Contact Info</h3>
                     <div class="info-item">
@@ -650,6 +727,13 @@
                         </div>
                     </div>
                     <div class="info-item">
+                        <i class="fa-solid fa-globe"></i>
+                        <div>
+                            <h4>Website</h4>
+                            <p><a href="https://saaigiga.in" target="_blank">saaigiga.in</a></p>
+                        </div>
+                    </div>
+                    <div class="info-item">
                         <i class="fa-solid fa-location-dot"></i>
                         <div>
                             <h4>Location</h4>
@@ -658,35 +742,21 @@
                     </div>
                 </div>
 
-                <div class="contact-form">
-                    <form action="mailto:admin@saaigiga.in" method="post" enctype="text/plain">
-                        <div class="form-group">
-                            <label>Your Name</label>
-                            <input type="text" name="Name" placeholder="John Doe" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Email Address</label>
-                            <input type="email" name="Email" placeholder="john@company.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Subject</label>
-                            <select name="Subject">
-                                <option>IT Service / Maintenance</option>
-                                <option>Buying Hardware</option>
-                                <option>Cloud Services</option>
-                                <option>Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Message</label>
-                            <textarea name="Message" rows="5" placeholder="Tell us about your requirements..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send via Email App</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+                  <!-- Contact Form -->
+<div class="contact-form" style="display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 40px; background: #f8f9fa; border-radius: 10px; text-align: center;">
+    <h3 style="margin-bottom: 20px;">Chat with us instantly</h3>
+    <p style="margin-bottom: 30px; color: #666;">Click below to chat with our support team on WhatsApp.</p>
+    
+    <a href="https://wa.me/919345834599" target="_blank" class="btn btn-primary" style="background-color: #25D366; border: none; padding: 15px 40px; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 10px;">
+        <i class="fa-brands fa-whatsapp" style="font-size: 1.3rem;"></i>
+        Chat on WhatsApp
+    </a>
+    
+    <div style="margin-top: 20px; font-size: 0.9rem;">
+        <span style="color: #999;">Or email us at:</span> 
+        <a href="mailto:admin@saaigiga.in" style="color: var(--primary-color); font-weight: bold;">admin@saaigiga.in</a>
+    </div>
+</div>
 
     <!-- Footer -->
     <footer>
@@ -715,19 +785,21 @@
                     </ul>
                 </div>
             </div>
-            <div class="text-center copyright">
+            <div class="copyright">
                 <p>&copy; 2023 SaaiGiGa IT Solutions. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Simple JS -->
+    <!-- Simple JS for Mobile Menu -->
     <script>
         const mobileToggle = document.getElementById('mobile-toggle');
         const navLinks = document.getElementById('nav-links');
 
         mobileToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+            
+            // Toggle icon between bars and times (X)
             const icon = mobileToggle.querySelector('i');
             if (navLinks.classList.contains('active')) {
                 icon.classList.remove('fa-bars');
@@ -738,6 +810,7 @@
             }
         });
 
+        // Close menu when clicking a link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
